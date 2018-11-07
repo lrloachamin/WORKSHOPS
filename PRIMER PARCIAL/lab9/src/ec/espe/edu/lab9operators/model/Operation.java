@@ -3,28 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab9;
+package ec.espe.edu.lab9operators.model;
 
 /**
  *
- * @author G403
+ * @author Luis Loachamin
  */
-public class Operacion {
+public class Operation {
   
     
    private int operand1;
    private int operand2;
-   private int result;
-   int resta;
+   int result;
+   int sub1;
    int mult;
    int i;
    int div;
-   
-   
-   
-   
+ 
    
    public int add(int operand1,int operand2){
+ 
        
      result=operand1+operand2;  
       
@@ -33,9 +31,9 @@ public class Operacion {
 }
    public int subtraction(int operand1, int operand2){
        
-    resta=add(operand1,-operand2);
+    sub1=add(operand1,-operand2);
        
-       return resta;
+       return sub1;
            
    }
    public int multpilication (int operand1 ,int operand2){
@@ -65,35 +63,58 @@ public class Operacion {
            
                    operand2--;    
        }
-     
+       
        return  mult;
        }   
    }
    
    public int division (int operand1,int operand2){
+       if (operand1<0){
+          operand1=operand1*(-1);
        i=0;
        while(operand1>0){
            operand1=subtraction(operand1,operand2);
            i=i+1;
        }
-       return i;
+       i=i*(-1);
+       return (i);
+       }  
+       else if (operand2<0){
+          operand2=operand2*(-1);
+       i=0;
+       while(operand1>0){
+           operand1=subtraction(operand1,operand2);
+           i=i+1;
+       }
+       i=i*(-1);
+       return (i);
+       }
+       else if (operand1<0 && operand2<0){
+           i=0;
+           operand1=operand1*(-1);
+           operand2=operand2*(-1);
+       while(operand1>0){
+           operand1=subtraction(operand1,operand2);
+           i=i+1;
+       }
+       return (i);
+       }
+       else {
+       i=0;
+       while(operand1>0){
+           operand1=subtraction(operand1,operand2);
+           i=i+1;
+       }
+       return (i);     
+   }
    }
   
        
    public void view (){
        
         System.out.println("the sumna es  "+result);
-       System.out.println("the subtraccion es  "+resta);
+       System.out.println("the subtraccion es  "+sub1);
        System.out.println("the subtraccion es  "+mult);
-       System.out.println("the division is "+i);
-       
-       
-       
-       
-       
-   }
-       
-   
-           
-           
+       System.out.println("the division is "+i);     
+   }          
 }
